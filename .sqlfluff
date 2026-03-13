@@ -1,0 +1,19 @@
+[sqlfluff]
+templater = dbt
+dialect = snowflake
+# Ensures it looks at your local project
+runaway_limit = 10
+
+[sqlfluff:templater:dbt]
+project_dir = ./
+profiles_dir = ./
+# This helps SQLFluff find the macros installed via packages.yml
+ignore_dbt_parse_error = True
+target = dev
+
+[sqlfluff:indentation]
+tab_width = 4
+
+[sqlfluff:rules:capitalisation.keywords]
+# Most Snowflake environments prefer uppercase keywords
+capitalisation_policy = upper

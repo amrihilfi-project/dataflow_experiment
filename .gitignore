@@ -1,0 +1,14 @@
+# Credentials and Environment
+.env
+profiles.yml
+
+# Python / Pipenv
+.venv/
+Pipfile.lock
+__pycache__/
+
+# dbt Artifacts
+target/
+dbt_packages/
+dbt_modules/
+logs/
