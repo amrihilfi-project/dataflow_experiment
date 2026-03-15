@@ -3,6 +3,8 @@ templater = dbt
 dialect = snowflake
 # Ensures it looks at your local project
 runaway_limit = 10
+# Ensure AM04 is NOT in this list if you want it to run
+exclude_rules = LT01, LT05
 
 [sqlfluff:templater:dbt]
 project_dir = ./
@@ -17,3 +19,14 @@ tab_width = 4
 [sqlfluff:rules:capitalisation.keywords]
 # Most Snowflake environments prefer uppercase keywords
 capitalisation_policy = upper
+
+[sqlfluff:rules:aliasing.column]
+# This is the specific configuration for AM04
+# it prevents 'SELECT *' and forces explicit column naming
+
+[sqlfluff:rules:ambiguous.column_references]
+# This rule (AM04) checks for 'SELECT *'
+# Setting this to true means it will flag a violation 
+# if it finds a star without an alias or if it's used in a way 
+# that makes columns unclear.
+aliasing_column_references = explicit

@@ -32,10 +32,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   dataflow_trial:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
   elementary:
     +schema: ELEMENTARY
+
+  sources:
+    +enabled: true
+  
+  layer_1_staging:
+    +materialized: view  # Staging should almost always be views
     
 vars:
   elementary_database: 'DBT_UTIL'

@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: src_btc
+    database: btc
+    schema: btc_schema
+    tables:
+      - name: btc
