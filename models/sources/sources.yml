@@ -6,3 +6,8 @@ sources:
     schema: btc_schema
     tables:
       - name: btc
+        config:
+          freshness:
+              warn_after: {count: 1, period: hour}  # Fixed spelling here
+              error_after: {count: 3, period: hour} # Fixed spelling here
+          loaded_at_field: BLOCK_TIMESTAMP
